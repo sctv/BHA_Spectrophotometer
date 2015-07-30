@@ -1,6 +1,10 @@
 
 import processing.serial.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
+
 Serial port;      // The serial port
 int exposureTime = 1; // 1 ms
 float updateSpeed = 2000; // 1000 ms
@@ -79,6 +83,26 @@ void computeSpectrum() {
   }
 }
 
+//export the spectrum to a csv file to the sketch folder, 
+//with timestamp as name
+void saveSpectrum()
+{
+  PrintWriter output;
+    
+  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
+  Date today = Calendar.getInstance().getTime(); 
+  String name = formatter.format(today);
+
+  output = createWriter("data/" + name + ".csv");
+  
+  for(int i = 0; i < SpectrumSize; i++) 
+  {
+    output.print(correctedSpectrumData[i] + ";"); 
+  }
+  
+  output.flush();  // Writes the remaining data to the file
+  output.close(); 
+}
 
 
 void draw() {
@@ -163,6 +187,13 @@ void keyPressed() {
     for (int i=0;i<SpectrumSize;i++)
       whiteReadout[i] = rawSpectrumData[i];
   }
+  
+  if (key == 's') 
+  {
+    println("save spectrum");
+    saveSpectrum();
+  }
+  
 }
 
 
