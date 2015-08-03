@@ -17,12 +17,14 @@ PFont titleFont;
 
 String buffer;
 
+//Mathematically the spectrometer should operate in the 400-900 nm wavelength range
+//For this specific box, pixel one corresponds with 900 nm, pixel 768 corresponds with 400nm
+//But should be calibrated..
 int SpectrumSize = 768;
 float[] rawSpectrumData, correctedSpectrumData;
 float[] darkReadout, whiteReadout;
 int spectrumValueIndex=0;
 int spectraCount=0;
-
 
 void setup() {
   size(800, 400);
@@ -65,11 +67,16 @@ void drawSpectrum() {
     
   float yscale = (height - 160)/maxVal;
   for (int i=1;i<correctedSpectrumData.length;i++) {
+    
+    float[] c = rgbForNm(nmForPixel(i));
+    stroke(c[0],c[1],c[2]);
+    
     line(i+xstart, ystart - correctedSpectrumData[i-1] * yscale, 
         i+xstart+1, ystart - correctedSpectrumData[i] * yscale);
   }
   
   int indexAtMousePos = max(0, min(SpectrumSize-1, mouseX - xstart));
+  text("nm: " + nmForPixel(indexAtMousePos), 150, 390);
   text("At mouse: " + correctedSpectrumData[indexAtMousePos], 350, 390);
   text("MaxValue: " + maxVal, 200, 390);
 }
