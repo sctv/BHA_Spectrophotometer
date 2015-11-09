@@ -36,7 +36,7 @@ void setup() {
   // List all the available serial ports:
   printArray(Serial.list());
 
-  String portName = Serial.list()[0];
+  String portName = Serial.list()[2];
   port = new Serial(this, portName, 57600);
 
   correctedSpectrumData = new float[SpectrumSize];
