@@ -10,5 +10,13 @@ Photodiode-based spectrophotometer using the TSL1402R IC.
 
 Archive contains:
 
-* BHA 2015-1 "BioFactory" Design
+* 2015 BHA1 Designs
+* 2015 BHA2 Designs
+
+To Do:
+
+* Cuvet holder
+* Screen + UI
+* BioHack Board scheme
+* Calibration protocol
 
