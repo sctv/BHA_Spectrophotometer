@@ -22,6 +22,9 @@
 /  LED pin
 */
 #define LED_PIN A5
+#define RLED_PIN 8
+#define BLED_PIN 9
+#define GLED_PIN 10
 /* *******************************************************
 */
 
@@ -104,8 +107,13 @@ void setup() {
   Serial.println("Spectrophotometer v1");
   
   pinMode(LED_PIN, OUTPUT);
+  pinMode(RLED_PIN, OUTPUT);
+  pinMode(GLED_PIN, OUTPUT);
+  pinMode(BLED_PIN, OUTPUT);
   digitalWrite(LED_PIN, 1);
- 
+  digitalWrite(RLED_PIN, 0);
+  digitalWrite(GLED_PIN, 0);
+  digitalWrite(BLED_PIN, 0);
 }
 
 void printOutput(int *data, int offset, int count)
@@ -138,6 +146,18 @@ void loop() {
         int v=buffer.substring(3).toInt();
         digitalWrite(LED_PIN,v);
       }
+      else if(buffer.startsWith("rled")) {
+        int v=buffer.substring(4).toInt();
+        digitalWrite(RLED_PIN,v);
+      }
+      else if(buffer.startsWith("gled")) {
+        int v=buffer.substring(4).toInt();
+        digitalWrite(GLED_PIN,v);
+      }
+      else if(buffer.startsWith("bled")) {
+        int v=buffer.substring(4).toInt();
+        digitalWrite(BLED_PIN,v);
+      }
       else if(buffer.startsWith("exp")) {
         sensor.exposureTime = buffer.substring(3).toInt();
       }
@@ -152,6 +172,7 @@ void loop() {
   static byte led_val=0;  
   digitalWrite(13, led_val); 
   led_val=1-led_val;
+  
   delay(100);  
 }
 

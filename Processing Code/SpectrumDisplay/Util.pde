@@ -14,27 +14,15 @@ float[] rgbForNm(int wavelength)
   int IntensityMax = 255;
   float factor, red, green, blue;
   
-  if((wavelength >= 380) && (wavelength<440)){
-      red = -(wavelength - 440) / (440 - 380);
+  if((wavelength >= 520) && (wavelength<650)){
+      red = 0.0;
       green = 0.0;
       blue = 1.0;
-  }else if((wavelength >= 440) && (wavelength<490)){
-      red = 0.0;
-      green = (wavelength - 440) / (490 - 440);
-      blue = 1.0;
-  }else if((wavelength >= 490) && (wavelength<510)){
+  }else if((wavelength >= 450) && (wavelength<520)){
       red = 0.0;
       green = 1.0;
-      blue = -(wavelength - 510) / (510 - 490);
-  }else if((wavelength >= 510) && (wavelength<580)){
-      red = (wavelength - 510) / (580 - 510);
-      green = 1.0;
       blue = 0.0;
-  }else if((wavelength >= 580) && (wavelength<645)){
-      red = 1.0;
-      green = -(wavelength - 645) / (645 - 580);
-      blue = 0.0;
-  }else if((wavelength >= 645) && (wavelength<781)){
+  }else if((wavelength >= 650) && (wavelength<740)){
       red = 1.0;
       green = 0.0;
       blue = 0.0;

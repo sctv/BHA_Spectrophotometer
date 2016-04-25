@@ -12,6 +12,9 @@ float updateSpeed = 2000; // 1000 ms
 int lastSpectrumUpdate=0;
 
 boolean ledState=true;
+boolean rledState=false;
+boolean gledState=false;
+boolean bledState=false;
 PFont defaultFont;
 PFont titleFont;
 
@@ -129,10 +132,13 @@ void draw() {
   text("Measurements: " + spectraCount, 10, 390);
 
   text("LED = " + ( ledState ? "ON" : "OFF" ), 700, 55);
-  text("L = Toggle LED", 700, 70);
+  text("L, R, G, B = Toggle LED", 700, 70);
+  text("RLED = " + ( rledState ? "ON" : "OFF" ), 700, 85);
+  text("GLED = " + ( gledState ? "ON" : "OFF" ), 700, 100);
+  text("BLED = " + ( bledState ? "ON" : "OFF" ), 700, 115);
   
   textFont(titleFont);
-  fill(0, 255, 0);
+  fill(0, 0, 0);
   text("BioHackAcademy Spectrophotometer", 10, 20);
   textFont(defaultFont);
   fill(0);
@@ -179,6 +185,21 @@ void keyPressed() {
   if (key == 'l') {
     ledState=!ledState;
     port.write("led " + ( ledState ? "1" : "0" )+ "\n");
+  }
+  
+  if (key == 'r') {
+    rledState=!rledState;
+    port.write("rled " + ( rledState ? "1" : "0" )+ "\n");
+  }
+  
+  if (key == 'g') {
+    gledState=!gledState;
+    port.write("gled " + ( gledState ? "1" : "0" )+ "\n");
+  }
+  
+  if (key == 'b') {
+    bledState=!bledState;
+    port.write("bled " + ( bledState ? "1" : "0" )+ "\n");
   }
   
   if (key == ' ') {
