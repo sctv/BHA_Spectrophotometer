@@ -15,6 +15,7 @@ For this device you need an Arduino or equivalent microprocessor.
 |5|1|220 ohm resistor|[iPrototype](https://iprototype.nl/products/components/resistors/220R)|0.45|
 |6|1|Power switch|[iPrototype](https://iprototype.nl/products/components/buttons-switches/rocker-switch-large)|0.95|
 |7|1|7.5 W power supply|[iPrototype](https://iprototype.nl/products/accessoires/power/adapter), [EOO](http://www.eoo-bv.nl/index.php?_a=viewProd&productId=11642)|13.95|
+|8|1|Array of 13 right angle header pins|||
 
 * You will also need 3MM MDF and some M3 10 mm bolts and nuts
 
