@@ -110,10 +110,12 @@ void setup() {
   pinMode(RLED_PIN, OUTPUT);
   pinMode(GLED_PIN, OUTPUT);
   pinMode(BLED_PIN, OUTPUT);
+  pinMode(12, OUTPUT);
   digitalWrite(LED_PIN, 1);
-  digitalWrite(RLED_PIN, 0);
-  digitalWrite(GLED_PIN, 0);
-  digitalWrite(BLED_PIN, 0);
+  digitalWrite(RLED_PIN, 1);
+  digitalWrite(GLED_PIN, 1);
+  digitalWrite(BLED_PIN, 1);
+  digitalWrite(12, 1);
 }
 
 void printOutput(int *data, int offset, int count)

@@ -133,9 +133,9 @@ void draw() {
 
   text("LED = " + ( ledState ? "ON" : "OFF" ), 700, 55);
   text("L, R, G, B = Toggle LED", 700, 70);
-  text("RLED = " + ( rledState ? "ON" : "OFF" ), 700, 85);
-  text("GLED = " + ( gledState ? "ON" : "OFF" ), 700, 100);
-  text("BLED = " + ( bledState ? "ON" : "OFF" ), 700, 115);
+  text("RLED = " + ( rledState ? "OFF" : "ON" ), 700, 85);
+  text("GLED = " + ( gledState ? "OFF" : "ON" ), 700, 100);
+  text("BLED = " + ( bledState ? "OFF" : "ON" ), 700, 115);
   
   textFont(titleFont);
   fill(0, 0, 0);
