@@ -25,6 +25,7 @@
 #define RLED_PIN 8
 #define BLED_PIN 9
 #define GLED_PIN 10
+#define onBoard_PIN 13
 /* *******************************************************
 */
 
@@ -97,11 +98,10 @@ TSL1406 sensor(PIN_SI,PIN_CLK, PIN_AO);
 
 String buffer;
 
-
 // the setup function runs once when you press reset or power the board
 void setup() {
   // initialize digital pin 13 as an output.
-  pinMode(13, OUTPUT);
+  pinMode(onBoard_PIN, OUTPUT);
 
   Serial.begin(57600);
   Serial.println("Spectrophotometer v1");
@@ -112,23 +112,23 @@ void setup() {
   pinMode(BLED_PIN, OUTPUT);
   pinMode(12, OUTPUT);
   digitalWrite(LED_PIN, 1);
-  digitalWrite(RLED_PIN, 1);
-  digitalWrite(GLED_PIN, 1);
-  digitalWrite(BLED_PIN, 1);
-  digitalWrite(12, 1);
+  digitalWrite(RLED_PIN, 0);
+  digitalWrite(GLED_PIN, 0);
+  digitalWrite(BLED_PIN, 0);
+  digitalWrite(12, HIGH);
 }
 
+// Print all data to Serial
 void printOutput(int *data, int offset, int count)
 {
   Serial.println("start");
   
   for(int i=0;i<count;i++) {
-//    Serial.print(offset+i);
-  //  Serial.print(";");
     Serial.println(data[i]);
   }
 }
 
+// Read sensor data
 void readSensor(){
   int values[768];
   sensor.read(values);
@@ -170,9 +170,8 @@ void loop() {
     } else buffer+=c;
   }  
  
-
   static byte led_val=0;  
-  digitalWrite(13, led_val); 
+  digitalWrite(onBoard_PIN, led_val); 
   led_val=1-led_val;
   
   delay(100);  
