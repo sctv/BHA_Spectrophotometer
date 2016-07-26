@@ -5,19 +5,23 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 
-Serial port;      // The serial port
+Serial port; // The serial port
+
 int exposureTime = 1; // 1 ms
-float updateSpeed = 2000; // 1000 ms
+float updateSpeed = 2000; // 2000 ms
+int lastSpectrumUpdate=0; // keep track of time in this variable
 
-int lastSpectrumUpdate=0;
-
+// LED toggle variables
 boolean ledState=true;
 boolean rledState=false;
 boolean gledState=false;
 boolean bledState=false;
+
+// Variables containing the fonts
 PFont defaultFont;
 PFont titleFont;
 
+// Serial communication buffer
 String buffer;
 
 //Mathematically the spectrometer should operate in the 400-900 nm wavelength range
@@ -30,35 +34,39 @@ int spectrumValueIndex=0;
 int spectraCount=0;
 
 void setup() {
+  
+  // Create a window
   size(800, 400);
-  // create a font with the third font available to the system:
+  
+  // Create a font with the third font available to the system:
   defaultFont = createFont(PFont.list()[0], 14);
   titleFont = createFont(PFont.list()[4], 20);
   textFont(defaultFont);
 
   // List all the available serial ports:
   printArray(Serial.list());
+  String portName = Serial.list()[2]; // Select port
+  port = new Serial(this, portName, 57600); // Open connection
 
-  String portName = Serial.list()[2];
-  port = new Serial(this, portName, 57600);
-
+  // Initiate arrays
   correctedSpectrumData = new float[SpectrumSize];
   rawSpectrumData = new float[SpectrumSize];
   darkReadout = new float[SpectrumSize];
   whiteReadout = new float[SpectrumSize];
+  // fill the array with dummy data
   for(int i=0;i<SpectrumSize;i++)
     whiteReadout[i]=1.0f;
   
-  lastSpectrumUpdate=millis();
+  lastSpectrumUpdate=millis(); // Set the clock
 
   ledState=true;
-  port.write("led 1\n");
+  port.write("led 1\n"); // enable LED
 }
 
 
 void readSpectrum() {
   println("Updating spectrum");
-  port.write("read\n");
+  port.write("read\n"); // write to Serial port
 }
 
 void drawSpectrum() {
@@ -116,13 +124,15 @@ void saveSpectrum()
 
 
 void draw() {
-  int time = millis();
+  int time = millis(); // Get the current time
 
+  // check whether it is time to do a new read out
   if (lastSpectrumUpdate + updateSpeed < time) {
     lastSpectrumUpdate=time;
     readSpectrum();
   }
 
+  // Draw user interface
   background(255);
   text("U=decrease exposure, I=increase exposure", 10, 55);
   text("Exposure time: " + exposureTime + " ms", 10, 75);
@@ -150,12 +160,12 @@ void draw() {
 void serialEvent(Serial port) {
   while (port.available () >0) {
     char c = port.readChar();
-    if (c == '\n' && buffer.length() > 0) {
+    if (c == '\n' && buffer.length() > 0) { // read until the end of a line
       char first=buffer.charAt(0);
       if (first >= '0' && first <= '9') {
-        int value = Integer.parseInt(buffer.trim());//substring(0,buffer.length()-1));
+        int value = Integer.parseInt(buffer.trim()); // convert into an Integer
         rawSpectrumData[spectrumValueIndex++] = value/1024.0f;
-        if (spectrumValueIndex==SpectrumSize) {
+        if (spectrumValueIndex==SpectrumSize) { // when all values have been received
           computeSpectrum();
           spectrumValueIndex=0;
           spectraCount ++;
@@ -223,7 +233,3 @@ void keyPressed() {
   }
   
 }
-
-
-
-
