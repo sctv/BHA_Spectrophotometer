@@ -12,11 +12,3 @@ Archive contains:
 
 * 2015 BHA1 Designs
 * 2015 BHA2 Designs
-
-To Do:
-
-* Cuvet holder
-* Screen + UI
-* BioHack Board scheme
-* Calibration protocol
-
