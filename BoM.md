@@ -10,7 +10,7 @@ For this device you need an Arduino or equivalent microprocessor.
 |2|1|TSL1406R Photo diode array|[Mouser](http://nl.mouser.com/ProductDetail/ams/TSL1406R/?qs=owm69ILshgasXOGrAzFz%252bQ%3D%3D), [DigiKey](http://www.digikey.nl/product-detail/en/TSL1406R/TSL1406-R-ND/3095064)|22.35|
 |3|1|1,000 lines/mm grating|[ipacity](http://ipacity.biedmeer.nl/Webwinkel-Product-78540591/Folie-tralie-1000-lijnen-mm-%2815-x-30-cm%29.html), [carolina](http://www.carolina.com/physical-science-light-and-optics/diffraction-grating/755230.pr?catId=&mCat=&sCat=&ssCat=&question=diffraction+grating)|15.90|
 |4|1|100 uF capacitor|[Farnell](http://nl.farnell.com/panasonic-electronic-components/eeufr1c101/cap-alu-elec-100uf-16v-rad/dp/1907228)|0.14|
-|5|1|220 ohm resistor|[iPrototype](https://iprototype.nl/products/components/resistors/220R)|0.45|
+|5|1|220 ohm resistor|[iPrototype](https://iprototype.nl/products/components/resistors/220R), [Farnell](http://nl.farnell.com/webapp/wcs/stores/servlet/ProductDisplay?catalogId=15001&langId=31&urlRequestType=Base&partNumber=2329643&storeId=10168)|0.04|
 |6|1|Array of 13 right angle header pins|[iPrototype](https://iprototype.nl/products/accessoires/headers/header-male-right-angle)|0.99|
 
 * You will also need 3MM MDF and some M3 10 mm bolts and nuts
