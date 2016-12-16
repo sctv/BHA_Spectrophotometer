@@ -1,27 +1,22 @@
 ## Bill of Materials
 
+Make sure you have an Arduino Leonardo or equivalent microprocessor, big enough sheets of 3mm material to cut the design from and plenty of wires and M3 10 screws and nuts to assemble all the parts.
+
 ### Must have for photodiode array design
 
 For this device you need an Arduino or equivalent microprocessor.
 
 |No|Amount|Description|Supplier NL|Cost|
 | ------------: | ------------: | :------------ | :------------ | ------------: |
-|1|1|White LED|[iPrototype](https://iprototype.nl/products/components/led-lcd/ledwit), [EOO](http://www.eoo-bv.nl/index.php?_a=viewProd&productId=9088)|0.52|
-|2|1|TSL1406R Photo diode array|[Mouser](http://nl.mouser.com/ProductDetail/ams/TSL1406R/?qs=owm69ILshgasXOGrAzFz%252bQ%3D%3D), [DigiKey](http://www.digikey.nl/product-detail/en/TSL1406R/TSL1406-R-ND/3095064)|22.35|
-|3|1|1,000 lines/mm grating|[ipacity](http://ipacity.biedmeer.nl/Webwinkel-Product-78540591/Folie-tralie-1000-lijnen-mm-%2815-x-30-cm%29.html), [carolina](http://www.carolina.com/physical-science-light-and-optics/diffraction-grating/755230.pr?catId=&mCat=&sCat=&ssCat=&question=diffraction+grating)|15.90|
+|1|1|White 5mm LED|[iPrototype](https://iprototype.nl/products/components/led-lcd/ledwit), [EOO](http://www.eoo-bv.nl/index.php?_a=viewProd&productId=9088), [Hackerstore](https://www.hackerstore.nl/Artikel/257)|0.18|
+|2|1|TSL1406R Photo diode array|[Mouser](http://nl.mouser.com/ProductDetail/ams/TSL1406R/?qs=owm69ILshgasXOGrAzFz%252bQ%3D%3D), [DigiKey](http://www.digikey.nl/product-detail/en/TSL1406R/TSL1406-R-ND/3095064)|22.57|
+|3|1|1,000 lines/mm grating|[ipacity](http://ipacity.biedmeer.nl/Webwinkel-Product-78540591/Folie-tralie-1000-lijnen-mm-%2815-x-30-cm%29.html), [Carolina](http://www.carolina.com/physical-science-light-and-optics/diffraction-grating/755230.pr?catId=&mCat=&sCat=&ssCat=&question=diffraction+grating)|14.00|
 |4|1|100 uF capacitor|[Farnell](http://nl.farnell.com/panasonic-electronic-components/eeufr1c101/cap-alu-elec-100uf-16v-rad/dp/1907228)|0.14|
-|5|1|220 ohm resistor|[iPrototype](https://iprototype.nl/products/components/resistors/220R), [Farnell](http://nl.farnell.com/webapp/wcs/stores/servlet/ProductDisplay?catalogId=15001&langId=31&urlRequestType=Base&partNumber=2329643&storeId=10168)|0.04|
+|5|4|220 ohm resistor|[Farnell](http://nl.farnell.com/multicomp/mcf-0-25w-220r/resistor-carbon-film-220r-0-25w/dp/9339299?Ntt=9339299), [iPrototype](https://iprototype.nl/products/components/resistors/220R), [EOO](http://www.eoo-bv.nl/index.php?_a=viewProd&productId=7085)|0.02|
 |6|1|Array of 13 right angle header pins|[iPrototype](https://iprototype.nl/products/accessoires/headers/header-male-right-angle)|0.99|
+|7|1|RGB LED|[Farnell](http://nl.farnell.com/kingbright/l-154a4surkqbdzgw/led-multi-colour-rgb-5mm/dp/2290374), [iPrototype](https://iprototype.nl/products/components/led-lcd/rgbled)|0.95|
 
-* You will also need 3MM MDF and some M3 10 mm bolts and nuts
-
-### Nice to have
-
-|No|Amount|Description|Supplier NL|Cost|
-| ------------: | ------------: | :------------ | :------------ | ------------: |
-|1|1|I2C LCD 16x2 Display|[iPrototype](https://iprototype.nl/products/components/led-lcd/lcd16x2-I2C-BL), ([HobbyElectronica](http://www.hobbyelectronica.nl/product/hd44780-16x2-karakters-lcd-display-module-blauw-backlight/) + [HobbyElektronica](http://www.hobbyelectronica.nl/product/i2c-lcd-interface-voor-16x2-en-20x4-displays/)|16.95|
-|2|1|RGB LED|[iPrototype](https://iprototype.nl/products/components/led-lcd/rgbled)|0.95|
-|3|3|220 ohm resistor|[iPrototype](https://iprototype.nl/products/components/resistors/220R)|0.45|
+*Estimate cost*: EUR 38.85
 
 **Alternatives**
 
